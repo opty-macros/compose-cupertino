@@ -361,7 +361,7 @@ sealed interface PresentationStyle {
  * @param confirmValueChange Optional callback invoked to confirm or veto a pending state change.
  */
 @Stable
-class CupertinoSheetState(
+open class CupertinoSheetState(
     initialValue: CupertinoSheetValue = CupertinoSheetValue.Hidden,
     internal val presentationStyle: PresentationStyle = PresentationStyle.Modal(),
     internal val confirmValueChange: (CupertinoSheetValue) -> Boolean = { true },

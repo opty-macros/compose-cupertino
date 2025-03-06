@@ -20,7 +20,6 @@
 
 package com.slapps.cupertino
 
-import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
@@ -125,6 +124,9 @@ fun CupertinoBottomSheetScaffold(
     appBarsBlurRadius: Dp = CupertinoScaffoldDefaults.AppBarsBlurRadius,
     hasNavigationTitle: Boolean = false,
     applyContentScaling: Boolean = CupertinoBottomSheetScaffoldDefaults.ApplyContentScaling,
+    snackbarHost: @Composable () -> Unit = {},
+    floatingActionButton: @Composable () -> Unit = {},
+    floatingActionButtonPosition: FabPosition = FabPosition.End,
     content: @Composable (PaddingValues) -> Unit,
 ) {
     BottomSheetScaffoldLayout(
@@ -177,7 +179,10 @@ fun CupertinoBottomSheetScaffold(
         colors = colors,
         sheetShape = sheetShape,
         contentWindowInsets = windowInsets,
-        applyContentScaling = applyContentScaling
+        applyContentScaling = applyContentScaling,
+        snackbarHost = snackbarHost,
+        floatingActionButton = floatingActionButton,
+        floatingActionButtonPosition = floatingActionButtonPosition
     )
 }
 
@@ -188,8 +193,8 @@ fun CupertinoBottomSheetScaffold(
  */
 
 @Stable
-class CupertinoBottomSheetScaffoldState(
-    val bottomSheetState: CupertinoSheetState,
+open class CupertinoBottomSheetScaffoldState(
+    open val bottomSheetState: CupertinoSheetState,
 )
 
 /**
@@ -468,7 +473,10 @@ private fun BottomSheetScaffoldLayout(
     appBarsBlurAlpha: Float = CupertinoScaffoldDefaults.AppBarsBlurAlpha,
     appBarsBlurRadius: Dp = CupertinoScaffoldDefaults.AppBarsBlurRadius,
     hasNavigationTitle: Boolean = false,
-    applyContentScaling: Boolean = true
+    applyContentScaling: Boolean = true,
+    snackbarHost: @Composable () -> Unit = {},
+    floatingActionButton: @Composable () -> Unit = {},
+    floatingActionButtonPosition: FabPosition = FabPosition.End,
 ) {
     val density = LocalDensity.current
 
@@ -573,6 +581,9 @@ private fun BottomSheetScaffoldLayout(
             appBarsBlurAlpha = appBarsBlurAlpha,
             appBarsBlurRadius = appBarsBlurRadius,
             hasNavigationTitle = hasNavigationTitle,
+            snackbarHost = snackbarHost,
+            floatingActionButton = floatingActionButton,
+            floatingActionButtonPosition = floatingActionButtonPosition
         )
 
         if (!sheetState.isBackgroundInteractive) {
