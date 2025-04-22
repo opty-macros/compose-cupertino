@@ -2,6 +2,8 @@
 * Converted using https://composables.com/svgtocompose
 */
 
+package com.slapps.cupertino.icons.outlined
+
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathFillType
 import androidx.compose.ui.graphics.SolidColor
@@ -13,7 +15,7 @@ import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 import com.slapps.cupertino.icons.CupertinoIcons
 
-public val CupertinoIcons.Outlined.BookPages: ImageVector
+val CupertinoIcons.Outlined.BookPages: ImageVector
     get() {
         if (_bookPages != null) {
             return _bookPages!!
