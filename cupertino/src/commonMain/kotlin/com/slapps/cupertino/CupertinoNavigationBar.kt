@@ -15,8 +15,6 @@
  * limitations under the License.
  */
 
-
-
 package com.slapps.cupertino
 
 import androidx.compose.foundation.gestures.ScrollableState
@@ -33,7 +31,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
@@ -227,7 +224,6 @@ fun RowScope.CupertinoNavigationBarItem(
                 LocalContentColor provides iconColor.copy(alpha = alpha),
             ) {
                 Box(
-                    modifier = Modifier.size(CupertinoIconDefaults.MediumSize),
                     contentAlignment = Alignment.Center,
                 ) {
                     icon()
