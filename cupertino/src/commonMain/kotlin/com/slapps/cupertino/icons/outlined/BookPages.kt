@@ -17,10 +17,10 @@ import com.slapps.cupertino.icons.CupertinoIcons
 
 val CupertinoIcons.Outlined.BookPages: ImageVector
     get() {
-        if (_bookPages != null) {
-            return _bookPages!!
+        if (bookPages != null) {
+            return bookPages!!
         }
-        _bookPages =
+        bookPages =
             ImageVector
                 .Builder(
                     name = "Book.pages",
@@ -147,7 +147,7 @@ val CupertinoIcons.Outlined.BookPages: ImageVector
                         }
                     }
                 }.build()
-        return _bookPages!!
+        return bookPages!!
     }
 
-private var _bookPages: ImageVector? = null
+private var bookPages: ImageVector? = null
