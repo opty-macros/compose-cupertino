@@ -36,6 +36,7 @@ import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeightIn
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.union
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.windowInsetsPadding
@@ -471,6 +472,7 @@ private fun BottomSheetScaffoldLayout(
     applyContentScaling: Boolean = true
 ) {
     val density = LocalDensity.current
+    val statusBarInsets = WindowInsets.statusBars
 
     val topPadding by remember {
         derivedStateOf {
@@ -480,7 +482,22 @@ private fun BottomSheetScaffoldLayout(
                 density.run {
                     maxOf(
                         contentWindowInsets.getTop(this) + ScaffoldTopPadding.toPx(),
+                        statusBarInsets.getTop(this) + ScaffoldTopPadding.toPx(),
                         BottomSheetMinTopPadding.toPx(),
+                    ).toDp()
+                }
+            }
+        }
+    }
+
+    val scaffoldTopPadding by remember {
+        derivedStateOf {
+            if (sheetState.presentationStyle is PresentationStyle.Fullscreen) {
+                0.dp
+            } else {
+                density.run {
+                    minOf(
+                        statusBarInsets.getTop(this),
                     ).toDp()
                 }
             }
@@ -550,7 +567,6 @@ private fun BottomSheetScaffoldLayout(
                             if (p > sub) {
                                 scaleX = 1 - (p - sub) / div
                                 scaleY = scaleX
-                                translationY = (1f - scaleX) * topPadding.toPx() * TranslationMultiplier
                                 if (p > 0) {
                                     shape = sheetShape
                                     clip = true
@@ -658,7 +674,7 @@ private const val ScaleMultiplier = 11f
 private const val TranslationMultiplier = 2.75f
 private val BottomSheetMaxWidth = 640.dp
 private val BottomSheetMinTopPadding = 10.dp
-private val ScaffoldTopPadding = 10.dp
+private val ScaffoldTopPadding = 20.dp
 
 internal val SheetTopAppBarInsets =
     WindowInsets(
