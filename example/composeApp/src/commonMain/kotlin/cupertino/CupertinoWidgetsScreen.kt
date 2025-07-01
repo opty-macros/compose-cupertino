@@ -1084,7 +1084,7 @@ private fun SectionScope.SwitchAndProgressBar() {
             colors = CupertinoBorderedTextFieldDefaults.colors(
                 focusedContainerColor = CupertinoTheme.colorScheme.systemBackground
             ),
-            shape = CupertinoTheme.shapes.large,
+            shape = CupertinoTheme.shapes.large.originalShape,
             leadingIcon = {
                 CupertinoIcon(
                     modifier = Modifier.height(CupertinoIconDefaults.MediumSize),

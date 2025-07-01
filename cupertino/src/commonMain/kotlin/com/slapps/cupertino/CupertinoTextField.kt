@@ -614,7 +614,7 @@ object CupertinoBorderedTextFieldDefaults {
     val shape: Shape
         @ReadOnlyComposable
         @Composable
-        get() = CupertinoTheme.shapes.small
+        get() = CupertinoTheme.shapes.small.originalShape
 
     val PaddingValues = PaddingValues(horizontal = 8.dp, vertical = 4.dp)
 

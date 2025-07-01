@@ -70,12 +70,12 @@ enum class CupertinoButtonSize(
         contentPadding = PaddingValues(12.dp, 6.dp)
     ),
     Regular(
-        shape = { it.small },
+        shape = { it.small.originalShape },
         textStyle = { it.body },
         contentPadding = PaddingValues(16.dp, 10.dp)
     ),
     Large(
-        shape = { it.medium },
+        shape = { it.medium.originalShape },
         textStyle = { it.body },
         contentPadding = PaddingValues(24.dp, 18.dp)
     ),

@@ -40,6 +40,7 @@ import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.union
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Immutable
@@ -73,7 +74,9 @@ import com.slapps.cupertino.theme.Black
 import com.slapps.cupertino.theme.CupertinoColors
 import com.slapps.cupertino.theme.CupertinoTheme
 import com.slapps.cupertino.theme.DefaultAlpha
+import com.slapps.cupertino.theme.ScalableRoundedShape
 import kotlinx.coroutines.launch
+import kotlinx.datetime.Clock
 import kotlin.math.max
 import kotlin.math.roundToInt
 
@@ -111,7 +114,7 @@ fun CupertinoBottomSheetScaffold(
     windowInsets: WindowInsets = CupertinoScaffoldDefaults.contentWindowInsets,
     scaffoldState: CupertinoBottomSheetScaffoldState = rememberCupertinoBottomSheetScaffoldState(),
     colors: CupertinoBottomSheetScaffoldColors = CupertinoBottomSheetScaffoldDefaults.colors(),
-    sheetShape: Shape = CupertinoBottomSheetDefaults.shape,
+    sheetShape: ScalableRoundedShape = CupertinoBottomSheetDefaults.shape,
     sheetShadowElevation: Dp = CupertinoBottomSheetDefaults.ShadowElevation,
     sheetDragHandle: @Composable (() -> Unit)? =
         if (scaffoldState.bottomSheetState.hasPartiallyExpandedState) {
@@ -249,7 +252,7 @@ private fun StandardBottomSheet(
     peekHeight: Dp,
     sheetSwipeEnabled: Boolean,
     layoutHeight: Float,
-    shape: Shape,
+    shape: ScalableRoundedShape,
     containerColor: Color,
     contentColor: Color,
     shadowElevation: Dp,
@@ -364,7 +367,7 @@ private fun StandardBottomSheet(
                         else -> null
                     }
                 },
-        shape = shape,
+        shape = shape.originalShape,
         color = containerColor,
         shadowElevation = shadowElevation,
         contentColor = contentColor,
@@ -463,7 +466,7 @@ private fun BottomSheetScaffoldLayout(
     body: @Composable (innerPadding: PaddingValues) -> Unit,
     bottomSheet: @Composable (layoutHeight: Int) -> Unit,
     sheetOffset: () -> Float,
-    sheetShape: Shape,
+    sheetShape: ScalableRoundedShape,
     contentWindowInsets: WindowInsets,
     colors: CupertinoBottomSheetScaffoldColors,
     appBarsBlurAlpha: Float = CupertinoScaffoldDefaults.AppBarsBlurAlpha,
@@ -568,7 +571,7 @@ private fun BottomSheetScaffoldLayout(
                                 scaleX = 1 - (p - sub) / div
                                 scaleY = scaleX
                                 if (p > 0) {
-                                    shape = sheetShape
+                                    shape = sheetShape.scaled(p)
                                     clip = true
                                 }
                             }
