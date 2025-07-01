@@ -138,7 +138,7 @@ fun CupertinoSegmentedControlIndicator(
     selectedTabIndex: Int,
     tabPositions: List<TabPosition>,
     modifier: Modifier = Modifier,
-    shape: Shape = CupertinoTheme.shapes.small,
+    shape: Shape = CupertinoTheme.shapes.small.originalShape,
     color: Color = CupertinoSegmentedControlDefaults.colors().indicatorColor,
     separatorColor: Color = CupertinoTheme.colorScheme.separator,
 ) {
@@ -278,7 +278,7 @@ object CupertinoSegmentedControlDefaults {
     val shape: Shape
         @Composable
         @ReadOnlyComposable
-        get() = CupertinoTheme.shapes.small
+        get() = CupertinoTheme.shapes.small.originalShape
 
     @Composable
     @ReadOnlyComposable

@@ -141,5 +141,5 @@ object CupertinoLabelIconDefaults {
     val Shape: Shape
         @Composable
         @ReadOnlyComposable
-        get() = CupertinoTheme.shapes.small
+        get() = CupertinoTheme.shapes.small.originalShape
 }

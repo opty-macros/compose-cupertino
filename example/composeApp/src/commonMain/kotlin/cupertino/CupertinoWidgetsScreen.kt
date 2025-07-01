@@ -53,6 +53,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxSize
@@ -1083,7 +1084,7 @@ private fun SectionScope.SwitchAndProgressBar() {
             colors = CupertinoBorderedTextFieldDefaults.colors(
                 focusedContainerColor = CupertinoTheme.colorScheme.systemBackground
             ),
-            shape = CupertinoTheme.shapes.large,
+            shape = CupertinoTheme.shapes.large.originalShape,
             leadingIcon = {
                 CupertinoIcon(
                     modifier = Modifier.height(CupertinoIconDefaults.MediumSize),

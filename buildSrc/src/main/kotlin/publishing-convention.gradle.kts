@@ -38,7 +38,7 @@ version = System.getenv("VERSION") ?:
     if (isGithubActions)
         error("VERSION must be set for GitHub Actions")
     else
-        "0.0.0-LOCAL"
+        "0.2.0-LOCAL"
 
 // TODO use Dokka and fix this
 val javadocJar by tasks.registering(Jar::class) {

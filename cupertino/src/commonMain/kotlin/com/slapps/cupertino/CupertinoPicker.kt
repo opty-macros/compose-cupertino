@@ -508,7 +508,7 @@ internal object CupertinoPickerTokens {
         )
 
     val IndicatorShape: CornerBasedShape
-        @Composable get() = CupertinoTheme.shapes.small
+        @Composable get() = CupertinoTheme.shapes.small.originalShape
 }
 
 internal val PickerMaxWidth = 500.dp

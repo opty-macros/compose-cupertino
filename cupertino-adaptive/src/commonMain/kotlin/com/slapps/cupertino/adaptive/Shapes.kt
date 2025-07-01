@@ -23,22 +23,24 @@ import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.unit.dp
+import com.slapps.cupertino.theme.ScalableRoundedShape
+import com.slapps.cupertino.theme.toScalableShape
 import com.slapps.cupertino.theme.Shapes as CupertinoShapes
 import androidx.compose.material3.Shapes as MaterialShapes
 @Immutable
 class Shapes(
-    val extraSmall: CornerBasedShape = RoundedCornerShape(4.dp),
-    val small: CornerBasedShape = RoundedCornerShape(8.dp),
-    val medium: CornerBasedShape = RoundedCornerShape(12.dp),
-    val large: CornerBasedShape = RoundedCornerShape(16.dp),
-    val extraLarge: CornerBasedShape = RoundedCornerShape(28.dp),
+    val extraSmall: ScalableRoundedShape = ScalableRoundedShape(4.dp),
+    val small: ScalableRoundedShape = ScalableRoundedShape(8.dp),
+    val medium: ScalableRoundedShape = ScalableRoundedShape(12.dp),
+    val large: ScalableRoundedShape = ScalableRoundedShape(16.dp),
+    val extraLarge: ScalableRoundedShape = ScalableRoundedShape(28.dp),
 ) {
     fun copy(
-        extraSmall: CornerBasedShape = this.extraSmall,
-        small: CornerBasedShape = this.small,
-        medium: CornerBasedShape = this.medium,
-        large: CornerBasedShape = this.large,
-        extraLarge: CornerBasedShape = this.extraLarge,
+        extraSmall: ScalableRoundedShape = this.extraSmall,
+        small: ScalableRoundedShape = this.small,
+        medium: ScalableRoundedShape = this.medium,
+        large: ScalableRoundedShape = this.large,
+        extraLarge: ScalableRoundedShape = this.extraLarge,
     ) = Shapes(
         extraSmall = extraSmall,
         small = small,
@@ -49,11 +51,11 @@ class Shapes(
 }
 
 fun Shapes.toMaterial() : MaterialShapes = MaterialShapes(
-    extraSmall = extraSmall,
-    small = small,
-    medium = medium,
-    large = large,
-    extraLarge = extraLarge
+    extraSmall = extraSmall.originalShape,
+    small = small.originalShape,
+    medium = medium.originalShape,
+    large = large.originalShape,
+    extraLarge = extraLarge.originalShape
 )
 
 fun Shapes.toCupertino() : CupertinoShapes = CupertinoShapes(
@@ -65,11 +67,11 @@ fun Shapes.toCupertino() : CupertinoShapes = CupertinoShapes(
 )
 
 fun CupertinoShapes.toMaterial() : MaterialShapes = MaterialShapes(
-    extraSmall = extraSmall,
-    small = small,
-    medium = medium,
-    large = large,
-    extraLarge = extraLarge
+    extraSmall = extraSmall.originalShape,
+    small = small.originalShape,
+    medium = medium.originalShape,
+    large = large.originalShape,
+    extraLarge = extraLarge.originalShape
 )
 
 fun CupertinoShapes.toAdaptive() : Shapes = Shapes(
@@ -79,22 +81,5 @@ fun CupertinoShapes.toAdaptive() : Shapes = Shapes(
     large = large,
     extraLarge = extraLarge
 )
-
-fun MaterialShapes.toCupertino() : CupertinoShapes = CupertinoShapes(
-    extraSmall = extraSmall,
-    small = small,
-    medium = medium,
-    large = large,
-    extraLarge = extraLarge
-)
-
-fun MaterialShapes.toAdaptive() : Shapes = Shapes(
-    extraSmall = extraSmall,
-    small = small,
-    medium = medium,
-    large = large,
-    extraLarge = extraLarge
-)
-
 
 

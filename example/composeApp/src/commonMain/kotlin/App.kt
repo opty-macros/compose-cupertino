@@ -125,11 +125,11 @@ fun GeneratedAdaptiveTheme(
                 isDark = useDarkTheme
             ),
             shapes = androidx.compose.material3.Shapes(
-                extraSmall = shapes.extraSmall,
-                small = shapes.small,
-                medium = shapes.medium,
-                large = shapes.large,
-                extraLarge = shapes.extraLarge
+                extraSmall = shapes.extraSmall.originalShape,
+                small = shapes.small.originalShape,
+                medium = shapes.medium.originalShape,
+                large = shapes.large.originalShape,
+                extraLarge = shapes.extraLarge.originalShape
             )
         ),
         cupertino = CupertinoThemeSpec.Default(

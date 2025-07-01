@@ -52,6 +52,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
 import com.slapps.cupertino.theme.CupertinoTheme
+import com.slapps.cupertino.theme.ScalableRoundedShape
 import kotlinx.coroutines.CancellationException
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.Serializable
@@ -122,13 +123,13 @@ object CupertinoBottomSheetDefaults {
         @ReadOnlyComposable
         get() = CupertinoTheme.colorScheme.secondarySystemGroupedBackground
 
-    val shape: Shape
+    val shape: ScalableRoundedShape
         @Composable
         @ReadOnlyComposable
         get() =
             CupertinoTheme.shapes.large.copy(
-                bottomStart = CornerSize(0),
-                bottomEnd = CornerSize(0),
+                bottomStart = 0.dp,
+                bottomEnd = 0.dp,
             )
 
     @Composable

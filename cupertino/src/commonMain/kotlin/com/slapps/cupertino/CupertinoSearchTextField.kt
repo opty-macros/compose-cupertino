@@ -354,7 +354,7 @@ object CupertinoSearchTextFieldDefaults {
     val shape: Shape
         @Composable
         @ReadOnlyComposable
-        get() = CupertinoTheme.shapes.medium
+        get() = CupertinoTheme.shapes.medium.originalShape
 
     val PaddingValues =
         PaddingValues(

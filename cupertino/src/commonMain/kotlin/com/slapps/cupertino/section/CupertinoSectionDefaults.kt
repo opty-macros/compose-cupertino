@@ -108,7 +108,7 @@ object CupertinoSectionDefaults {
     @ReadOnlyComposable
     fun shape(style: SectionStyle = LocalSectionStyle.current): CornerBasedShape =
         if (style.grouped && style.inset)
-            CupertinoTheme.shapes.medium
+            CupertinoTheme.shapes.medium.originalShape
         else RoundedCornerShape(0)
 
     @Composable
@@ -153,7 +153,7 @@ object CupertinoSectionDefaults {
     fun PickerButton(
         modifier: Modifier,
         expanded: Boolean,
-        shape: Shape = CupertinoTheme.shapes.small,
+        shape: Shape = CupertinoTheme.shapes.small.originalShape,
         containerColor: Color = CupertinoTheme.colorScheme.quaternarySystemFill,
         activeContentColor: Color = CupertinoTheme.colorScheme.accent,
         contentColor: Color = CupertinoTheme.colorScheme.label,

@@ -405,7 +405,7 @@ object CupertinoDialogsDefaults {
     val Shape: CornerBasedShape
         @Composable
         @ReadOnlyComposable
-        get() = CupertinoTheme.shapes.medium
+        get() = CupertinoTheme.shapes.medium.originalShape
 }
 
 @Composable
